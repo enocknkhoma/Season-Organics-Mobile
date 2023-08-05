@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:season/view/authentication/forgetpassword.dart';
+import 'package:season/view/authentication/otp.dart';
 import 'package:season/view/authentication/registration.dart';
 import 'package:season/widget/bottomnavbar.dart';
 import 'package:season/widget/loading.dart';
@@ -12,7 +15,7 @@ class Authentication extends StatefulWidget {
 }
 
 class _AuthenticationState extends State<Authentication> {
-   final _key = GlobalKey<FormState>();
+  final _key = GlobalKey<FormState>();
   bool loading = false;
 
   bool validate() {
@@ -30,7 +33,7 @@ class _AuthenticationState extends State<Authentication> {
   final TextEditingController _passwordController = TextEditingController();
 
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return loading
         ? Loading()
         : Scaffold(
@@ -113,10 +116,7 @@ class _AuthenticationState extends State<Authentication> {
                                         fontSize: 12, color: Colors.black),
                                   ),
                                   onPressed: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) => Forgot()));
+                                    Get.to(() => const ForgetPassword());
                                   },
                                 ),
                               ),
@@ -127,16 +127,11 @@ class _AuthenticationState extends State<Authentication> {
                                 decoration: BoxDecoration(
                                   color: Theme.of(context).colorScheme.primary,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                      const BorderRadius.all(Radius.circular(10)),
                                 ),
                                 child: InkWell(
                                   onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                BottomNavBar()));
-                                    
+                                    Get.to(() => const OTPScreen());
                                   },
                                   child: const Padding(
                                     padding: EdgeInsets.symmetric(
@@ -171,28 +166,20 @@ class _AuthenticationState extends State<Authentication> {
                                   ),
                                 ),
                               ),
-                             Padding(
-                                padding: EdgeInsets.all(20.0),
-                                child: Center(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => ForgetPassword()), // Replace with your RegisterScreen widget
-                                      );
-                                    },
-                                    child: Text(
-                                      "Don't have an account? Register",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).colorScheme.onSecondaryContainer,
-
-                                      ),
-                                      
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text('Does not have account?'),
+                                  TextButton(
+                                    child: const Text(
+                                      'Sign Up',
+                                      style: TextStyle(fontSize: 20),
                                     ),
-                                  ),
-                                ),
+                                    onPressed: () {
+                                      //signup screen
+                                    },
+                                  )
+                                ],
                               ),
                             ],
                           ),

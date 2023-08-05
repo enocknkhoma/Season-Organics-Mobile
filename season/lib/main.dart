@@ -14,6 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     GetMaterialApp(
+      
       debugShowCheckedModeBanner: false,
       title: 'Season Organics',
       theme: ThemeData(
@@ -53,7 +54,7 @@ void main() async {
         ),
       ),
       // home:MyHome(),
-      home: Authentication(),
+      home: const Authentication(),
     ),
   );
 }
