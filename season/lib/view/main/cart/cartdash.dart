@@ -49,9 +49,9 @@ class CartDashBoard extends StatelessWidget {
             //will remove
             // height: 700,
             padding: const EdgeInsets.only(top: 15),
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
               color: Color(0xFFEDECF2),
-              borderRadius: const BorderRadius.only(
+              borderRadius:  BorderRadius.only(
                 topLeft: Radius.circular(35),
                 topRight: Radius.circular(35),
               ),

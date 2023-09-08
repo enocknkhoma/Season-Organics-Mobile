@@ -131,7 +131,7 @@ class _AuthenticationState extends State<Authentication> {
                                 ),
                                 child: InkWell(
                                   onTap: () {
-                                    Get.to(() => const OTPScreen());
+                                    Get.off(() => const OTPScreen());
                                   },
                                   child: const Padding(
                                     padding: EdgeInsets.symmetric(
@@ -176,6 +176,7 @@ class _AuthenticationState extends State<Authentication> {
                                       style: TextStyle(fontSize: 20),
                                     ),
                                     onPressed: () {
+                                    Get.to(() => const Register());          
                                       //signup screen
                                     },
                                   )

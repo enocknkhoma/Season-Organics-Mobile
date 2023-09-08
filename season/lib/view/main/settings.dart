@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:season/view/authentication/authentication.dart';
 import 'package:season/widget/widget_settings.dart';
 
 class Settings extends StatelessWidget {
@@ -10,8 +12,7 @@ class Settings extends StatelessWidget {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary, 
-
+        backgroundColor: Theme.of(context).colorScheme.primary,
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(
@@ -19,14 +20,12 @@ class Settings extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            color: Colors.white,
-          )
-          // style: Theme.of(context).textTheme.headline6,
-        ),
-        
+        title: const Text('Profile',
+            style: TextStyle(
+              color: Colors.white,
+            )
+            // style: Theme.of(context).textTheme.headline6,
+            ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -51,13 +50,15 @@ class Settings extends StatelessWidget {
                     child: Container(
                       width: 35,
                       height: 35,
-                        decoration: BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: Theme.of(context).colorScheme.primary,
-                        ),
-                      child: const Icon(LineAwesomeIcons.alternate_pencil,
+                      ),
+                      child: const Icon(
+                        LineAwesomeIcons.alternate_pencil,
                         color: Colors.black,
-                        size: 20,),
+                        size: 20,
+                      ),
                     ),
                   )
                 ],
@@ -81,16 +82,16 @@ class Settings extends StatelessWidget {
                 height: 10,
               ),
               // Start Menu
-             
+
               const SizedBox(
                 height: 10,
               ),
               ProfileMenu(
-                  title: 'About Us',
-                  icon: LineAwesomeIcons.address_book,
-                  endIcon: false,
-                  onPressed: () {
-                    showDialog(
+                title: 'About Us',
+                icon: LineAwesomeIcons.address_book,
+                endIcon: false,
+                onPressed: () {
+                  showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
                       title: const Text(
@@ -103,17 +104,20 @@ class Settings extends StatelessWidget {
                             child: const Text('Ok')),
                       ],
                       content: const Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan ligula molestie blandit vehicula. Mauris ac ante blandit, pulvinar arcu eu, molestie ipsum. In a scelerisque tortor. Sed vehicula bibendum tempus. Morbi dapibus risus quis erat sagittis, eget scelerisque lorem feugiat. Pellentesque auctor lorem et porttitor hendrerit. Curabitur imperdiet vitae ex non lobortis. Morbi in lectus aliquet, euismod ipsum nec, tempor erat. Proin massa tellus, dapibus eget eros quis, vestibulum tempor metus. Maecenas placerat vel felis ac ullamcorper. Suspendisse luctus orci in urna finibus, eu sagittis erat mollis. Curabitur ac magna quis magna viverra euismod. Ut mattis molestie tellus, a bibendum metus commodo sit amet'
-                      ),
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan ligula molestie blandit vehicula. Mauris ac ante blandit, pulvinar arcu eu, molestie ipsum. In a scelerisque tortor. Sed vehicula bibendum tempus. Morbi dapibus risus quis erat sagittis, eget scelerisque lorem feugiat. Pellentesque auctor lorem et porttitor hendrerit. Curabitur imperdiet vitae ex non lobortis. Morbi in lectus aliquet, euismod ipsum nec, tempor erat. Proin massa tellus, dapibus eget eros quis, vestibulum tempor metus. Maecenas placerat vel felis ac ullamcorper. Suspendisse luctus orci in urna finibus, eu sagittis erat mollis. Curabitur ac magna quis magna viverra euismod. Ut mattis molestie tellus, a bibendum metus commodo sit amet'),
                     ),
                   );
-                  },),
+                },
+              ),
               ProfileMenu(
-                  title: 'Logout',
-                  icon: LineAwesomeIcons.alternate_sign_out,
-                  textColor: Colors.red,
-                  endIcon: false,
-                  onPressed: () {},),
+                title: 'Logout',
+                icon: LineAwesomeIcons.alternate_sign_out,
+                textColor: Colors.red,
+                endIcon: false,
+                onPressed: () {
+                  Get.off(() => const Authentication());
+                },
+              ),
             ],
           ),
         ),

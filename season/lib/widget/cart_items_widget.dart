@@ -9,7 +9,7 @@ class CartItems extends StatelessWidget {
     int i;
     return Column(
       children: [
-        for (i = 1; i < 7; i++)
+        for (i = 1; i < 3; i++)
           Container(
             height: 100,
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),

@@ -18,6 +18,7 @@ void main() async {
       debugShowCheckedModeBanner: false,
       title: 'Season Organics',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
         colorScheme: const ColorScheme(
           brightness: Brightness.light,

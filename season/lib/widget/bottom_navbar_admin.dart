@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:season/view/main/cart/cartdash.dart';
+import 'package:season/view/admin/add_user.dart';
+import 'package:season/view/admin/adminDashboard.dart';
+import 'package:season/view/admin/order.dart';
+import 'package:season/view/admin/product.dart';
 import 'package:season/view/main/dashboard.dart';
 import 'package:season/view/main/settings.dart';
 
-class BottomNavBar extends StatefulWidget {
+class BottomNavBarAdmin extends StatefulWidget {
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  _BottomNavBarAdminState createState() => _BottomNavBarAdminState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _BottomNavBarAdminState extends State<BottomNavBarAdmin> {
   int _currentIndex = 0;
 
   final List _screens = [
-    const Dashboard(),
-    const CartDashBoard(),
+    const AdminDashboard(),
+    const Orders(),
+    const ProductManagement(),
+    const AddUser(),
     const Settings(),
   ];
 
@@ -43,10 +48,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: Icons.home,
                 text: 'Home',
               ),
-            
               GButton(
-                icon: Icons.shopping_bag_outlined,
-                text: 'Cart',
+                icon: Icons.shopping_basket_outlined,
+                text: 'Orders',
+              ),
+              GButton(
+                icon: Icons.add_shopping_cart,
+                text: 'Product',
+              ),
+              GButton(
+                icon: Icons.supervisor_account_sharp,
+                text: 'Users',
               ),
               GButton(
                 icon: Icons.settings,

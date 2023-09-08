@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:season/view/authentication/authentication.dart';
+import 'package:season/view/authentication/otp.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class AddUser extends StatefulWidget {
+  const AddUser({super.key});
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<AddUser> createState() => _AddUserState();
 }
 
-class _RegisterState extends State<Register> {
+class _AddUserState extends State<AddUser> {
   final _key = GlobalKey<FormState>();
   bool loading = false;
 
@@ -54,6 +54,18 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(
+          'Add Driver',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         child: Container(
           child: Form(
@@ -62,29 +74,6 @@ class _RegisterState extends State<Register> {
               margin: const EdgeInsets.only(left: 20, right: 10, top: 15),
               child: Column(
                 children: [
-                  Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.background,
-                      ),
-                      child: Center(
-                        child: Image.asset("assets/images/logo.png"),
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                  Container(
-                      
-                      child: Center(
-                        child: Text(
-                              'REGISTRATION',
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontSize: 20,
-                              ),
-                            )
-                      ),
-                    ),
-                    const SizedBox(height: 15),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 25, vertical: 15),
@@ -289,7 +278,7 @@ class _RegisterState extends State<Register> {
                     ),
                     child: InkWell(
                       onTap: () {
-                        Get.to(() => const Authentication());
+                        Get.to(() => const OTPScreen());
                       },
                       child: const Padding(
                         padding: EdgeInsets.symmetric(
@@ -310,22 +299,6 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('Already Have an account?'),
-                      TextButton(
-                        child: const Text(
-                          'Sign In',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        onPressed: () {
-                          Get.off(() => const Authentication());
-                          //signup screen
-                        },
-                      )
-                    ],
                   ),
                 ],
               ),
